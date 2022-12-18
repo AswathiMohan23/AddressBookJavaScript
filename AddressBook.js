@@ -18,7 +18,38 @@ class AddressBook{
         if(nameRegex.test(name)){
             this.name=name;
         }else
-            throw "Name '"+name+"' is incorrect";
+            throw "Name '"+name+"' is invalid";
+    }
+    /**
+     * @param {string} address
+     */
+    set setAddress(address){
+        let addressRegex=RegExp("[A-Za-z]{4,}$")
+        if(addressRegex.test(address)){
+            this.address=address;
+        }else
+            throw "address '"+address+"' is invalid";
+    }
+
+    /**
+     * @param {string} city
+     */
+    set setCity(city){
+        let cityRegex=RegExp("[A-Za-z]{4,}$")
+        if(cityRegex.test(city)){
+            this.city=city;
+        }else
+            throw "city '"+city+"' is invalid";
+    }
+    /**
+     * @param {string} state
+     */
+    set setState(state){
+        let stateRegex=RegExp("[A-Za-z]{3,}$")
+        if(stateRegex.test(state)){
+            this.state=state;
+        }else
+            throw "state '"+state+"' is invalid";
     }
 
     toString(){
@@ -33,7 +64,26 @@ console.log(addressBook1.toString());
 let addressBook2 =new AddressBook("Anna","Maria","pqr apartment","Mysore","Karnataka","766789","942357123","annmaria@gmail.com");
 console.log(addressBook2.toString());
 try{
-    addressBook1.setName="daisy" //throws an error because id must be a non-zero number
+    addressBook1.setName="daisy" // thorws error because name should start with capital letter
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+try{
+    addressBook1.setAddress="efg" //thorws error because address should have min 4 letters
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+try{
+    addressBook1.setCity="aaa" //thorws error because city should have min 4 letters
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+
+try{
+    addressBook1.setState="ab" //thorws error because state should have min 3 letters
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
