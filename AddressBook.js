@@ -155,6 +155,7 @@ console.log(addressBookMap)
 console.log("AddressBookArray : "+addressBookArray2)
 searchByName("Ravi");
 deleteByName("Geetha");
+getCount();
 
 function searchByName(name){
     if(addressBookMap.has(name))
@@ -175,4 +176,13 @@ function deleteByName(name){
             console.log(key + " = " + value);
         }
     }
+}
+function getCount(){
+    let count=0;
+    for (var entry of addressBookMap.entries()) {
+        var key = entry[0],
+            value = entry[1];
+        count++    
+    }
+    console.log("\nNumber of contacts present in the addressBook = "+count)
 }
