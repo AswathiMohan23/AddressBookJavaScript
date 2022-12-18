@@ -134,4 +134,6 @@ try{
     console.error(e);
 }
 
-
+let addressBookArray=new Array();
+addressBookArray.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
+console.log("AddressBookArray : "+addressBookArray)
