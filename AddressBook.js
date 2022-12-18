@@ -153,12 +153,26 @@ console.log("AddressBookMap : ")
 
 console.log(addressBookMap)
 console.log("AddressBookArray : "+addressBookArray2)
-searchByName("Geetha");
+searchByName("Ravi");
+deleteByName("Geetha");
+
 function searchByName(name){
-    if(addressBookMap.has(name)){
+    if(addressBookMap.has(name))
         console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBookMap.get(name))
-    }
     else 
         console.log("Invalid entry")
     
+}
+ 
+function deleteByName(name){
+    if(addressBookMap.has(name)){
+        addressBookMap.delete(name)
+        console.log("\n===========================================>>> The remaining list after deletion of details of "+name+" :\n ")
+
+        for (var entry of addressBookMap.entries()) {
+            var key = entry[0],
+                value = entry[1];
+            console.log(key + " = " + value);
+        }
+    }
 }
