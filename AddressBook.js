@@ -140,6 +140,8 @@ let addressBookArray1=new Array();
 let addressBookArray2=new Array();
 let addressBookArray3=new Array();
 let addressBookMap=new Map();
+let mapByCity=new Map();
+
 
 
 
@@ -149,6 +151,11 @@ addressBookArray3.push("Ravi","Varma","tvm palace","Neyyatinkara","Trivandrum ci
 addressBookMap.set("Geetha",addressBookArray1)
 addressBookMap.set("Gouri",addressBookArray2)
 addressBookMap.set("Ravi",addressBookArray3)
+mapByCity.set("pala",addressBookArray1)
+mapByCity.set("vytla",addressBookArray2)
+mapByCity.set("neyyatinkara",addressBookArray3)
+
+
 console.log("AddressBookMap : ")
 
 console.log(addressBookMap)
@@ -156,13 +163,20 @@ console.log("AddressBookArray : "+addressBookArray2)
 searchByName("Ravi");
 deleteByName("Geetha");
 getCount();
+searchByCity("pala");
+
 
 function searchByName(name){
     if(addressBookMap.has(name))
         console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBookMap.get(name))
     else 
         console.log("Invalid entry")
-    
+}
+function searchByCity(city){
+    if(mapByCity.has(city))
+        console.log("\n=========================>>>The searched city is "+city+" and the details of the person from that city is given below\n\n"+mapByCity.get(city))
+    else 
+        console.log("Invalid entry")
 }
  
 function deleteByName(name){
