@@ -51,6 +51,17 @@ class AddressBook{
         }else
             throw "state '"+state+"' is invalid";
     }
+    
+    /**
+     * @param {string} phn
+     */
+    set setPhoneNo(phn){
+        let phnRegex=RegExp("[91]+() +[789][0-9]{9}")
+        if(phnRegex.test(phn)){
+            this.phn=phn;
+        }else
+            throw "phoneNo '"+phn+"' is invalid";
+    }
 
     toString(){
         return "firstName = "+this.firstName+" , secondName = "+this.lastName+" ,address = "+this.address+" ,city = "+this.city
@@ -88,3 +99,10 @@ try{
 }catch(e){
     console.error(e);
 }
+try{
+    addressBook1.setPhoneNo="91 94951" //thorws error because phone no should have 10 digits
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+
