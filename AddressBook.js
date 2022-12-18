@@ -10,11 +10,13 @@ class AddressBook{
         this.phoneNo=params[6];
         this.email=params[7];
     }
-    
+    get getFirstName(){
+        return this.firstName;
+    }
     /**
      * @param {string} name
      */
-    set setName(name){
+    set setFirstName(name){
         let nameRegex=RegExp("[A-Z]{1}[a-z]{3,}$")
         if(nameRegex.test(name)){
             this.name=name;
@@ -91,7 +93,7 @@ console.log(addressBook1.toString());
 let addressBook2 =new AddressBook("Anna","Maria","pqr apartment","Mysore","Karnataka","766789","942357123","annmaria@gmail.com");
 console.log(addressBook2.toString());
 try{
-    addressBook1.setName="daisy" // throws error because name should start with capital letter
+    addressBook1.setFirstName="daisy" // throws error because name should start with capital letter
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
@@ -137,3 +139,15 @@ try{
 let addressBookArray=new Array();
 addressBookArray.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
 console.log("AddressBookArray : "+addressBookArray)
+searchByName("Tom");
+function searchByName(name){
+    if(addressBook.firstName==name){
+        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook)
+    }
+    else if(addressBook1.firstName==name){
+        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook1)
+    }
+    else if(addressBook2.firstName==name){
+        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook2)
+    }
+}
