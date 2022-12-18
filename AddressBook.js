@@ -62,6 +62,21 @@ class AddressBook{
         }else
             throw "phoneNo '"+phn+"' is invalid";
     }
+    set setEmail(email){
+        let emailRegex=RegExp("^[a-z0-9+_.-]+@+[a-z]+.+[a-z]{2,}$")
+        if(emailRegex.test(email)){
+            this.email=email;
+        }else
+            throw "Email '"+email+"' is invalid";
+    }
+    set setZip(zip){
+        let zipRegex=RegExp("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$")
+        if(zipRegex.test(zip)){
+            this.zip=zip;
+        }else
+            throw "Zip '"+zip+"' is invalid";
+    }
+    
 
     toString(){
         return "firstName = "+this.firstName+" , secondName = "+this.lastName+" ,address = "+this.address+" ,city = "+this.city
@@ -75,32 +90,44 @@ console.log(addressBook1.toString());
 let addressBook2 =new AddressBook("Anna","Maria","pqr apartment","Mysore","Karnataka","766789","942357123","annmaria@gmail.com");
 console.log(addressBook2.toString());
 try{
-    addressBook1.setName="daisy" // thorws error because name should start with capital letter
+    addressBook1.setName="daisy" // throws error because name should start with capital letter
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
 }
 try{
-    addressBook1.setAddress="efg" //thorws error because address should have min 4 letters
+    addressBook1.setAddress="efg" //throws error because address should have min 4 letters
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
 }
 try{
-    addressBook1.setCity="aaa" //thorws error because city should have min 4 letters
+    addressBook1.setCity="aaa" //throws error because city should have min 4 letters
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
 }
 
 try{
-    addressBook1.setState="ab" //thorws error because state should have min 3 letters
+    addressBook1.setState="ab" //throws error because state should have min 3 letters
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
 }
 try{
-    addressBook1.setPhoneNo="91 94951" //thorws error because phone no should have 10 digits
+    addressBook1.setPhoneNo="91 94951" //throws error because phone no should have 10 digits
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+try{
+    addressBook1.setEmail="abc()*@gmail.com" 
+    console.log(addressBook1.toString())
+}catch(e){
+    console.error(e);
+}
+try{
+    addressBook1.setZip="400088A" //throws error because zip should not contain alphabets
     console.log(addressBook1.toString())
 }catch(e){
     console.error(e);
