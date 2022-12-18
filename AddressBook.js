@@ -136,18 +136,29 @@ try{
     console.error(e);
 }
 
-let addressBookArray=new Array();
-addressBookArray.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
-console.log("AddressBookArray : "+addressBookArray)
-searchByName("Tom");
+let addressBookArray1=new Array();
+let addressBookArray2=new Array();
+let addressBookArray3=new Array();
+let addressBookMap=new Map();
+
+
+
+addressBookArray1.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
+addressBookArray2.push("Gouri","Menon","rty apartment","Vytla","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
+addressBookArray3.push("Ravi","Varma","tvm palace","Neyyatinkara","Trivandrum city","Trivandrum","Kerala","656262","91 9072837890","ravi@gmail.com")
+addressBookMap.set("Geetha",addressBookArray1)
+addressBookMap.set("Gouri",addressBookArray2)
+addressBookMap.set("Ravi",addressBookArray3)
+console.log("AddressBookMap : ")
+
+console.log(addressBookMap)
+console.log("AddressBookArray : "+addressBookArray2)
+searchByName("Geetha");
 function searchByName(name){
-    if(addressBook.firstName==name){
-        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook)
+    if(addressBookMap.has(name)){
+        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBookMap.get(name))
     }
-    else if(addressBook1.firstName==name){
-        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook1)
-    }
-    else if(addressBook2.firstName==name){
-        console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBook2)
-    }
+    else 
+        console.log("Invalid entry")
+    
 }
