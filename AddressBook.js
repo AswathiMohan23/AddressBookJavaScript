@@ -140,6 +140,8 @@ let addressBookArray1=new Array();
 let addressBookArray2=new Array();
 let addressBookArray3=new Array();
 let addressBookArray4=new Array();
+let addressBookArray5=new Array();
+
 
 let addressBookMap=new Map();
 let mapByCity=new Map();
@@ -150,12 +152,17 @@ let mapByCity=new Map();
 addressBookArray1.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
 addressBookArray2.push("Gouri","Menon","rty apartment","Vytla","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
 addressBookArray3.push("Ravi","Varma","tvm palace","Neyyatinkara","Trivandrum city","Trivandrum","Kerala","656262","91 9072837890","ravi@gmail.com")
+addressBookArray5.push("George","Davis","tyu house","Pala","Kottayam","Kerala","796262","91 8002837890","george@gmail.com")
 addressBookMap.set("Geetha",addressBookArray1)
 addressBookMap.set("Gouri",addressBookArray2)
 addressBookMap.set("Ravi",addressBookArray3)
+addressBookMap.set("George",addressBookArray5)
 mapByCity.set("pala",addressBookArray1)
 mapByCity.set("vytla",addressBookArray2)
 mapByCity.set("neyyatinkara",addressBookArray3)
+mapByCity.set("Pala",addressBookArray5)
+
+
 
 
 console.log("AddressBookMap : ")
@@ -163,9 +170,11 @@ console.log("AddressBookMap : ")
 console.log(addressBookMap)
 console.log("AddressBookArray : "+addressBookArray2)
 searchByName("Ravi");
+getCountByCity("Pala");
 deleteByName("Geetha");
 getCount();
-searchByCity("pala");
+searchByCity("Pala");
+
 
 
 function searchByName(name){
@@ -175,14 +184,14 @@ function searchByName(name){
         console.log("Invalid entry")
 }
 function searchByCity(city){
-    if(mapByCity.has(city))
+    if(mapByCity.has(city)==city)
         console.log("\n=========================>>>The searched city is "+city+" and the details of the person from that city is given below\n\n"+mapByCity.get(city))
     else 
         console.log("Invalid entry")
 }
  
 function deleteByName(name){
-    if(addressBookMap.has(name)){
+    if(addressBookMap.has(name)==name){
         addressBookMap.delete(name)
         console.log("\n===========================================>>> The remaining list after deletion of details of "+name+" :\n ")
 
@@ -203,20 +212,24 @@ function getCount(){
             value = entry[1];
         count++    
     }
-    console.log("\nNumber of contacts present in the addressBook = "+count)
+    console.log("\n=======================>>>>>>>>>>> Number of contacts present in the addressBook = "+count)
+
 }
-/*const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  
-  readline.question('Enter the firstName : ', firstName  => {
-    //console.log(`Hey there ${firstName}!`);*/
-    // Importing the module
+function getCountByCity(city) {
+    let storeArray=new Array()
+    if(mapByCity.has(city)){
+        for(i=0;i<mapByCity.size;i++){
+            storeArray.push(city)
+        }
+        console.log("\n=========================>>>The searched city is "+city+" and no of people from that city is : "+storeArray.length)
+
+    }
+    
+}
+
     var readline = require('readline');
     let rl = readline.createInterface(
          process.stdin, process.stdout);
-  
     rl.question('Enter the firstName ', (firstName) => {
             console.log( firstName);
         if(addressBookMap.has(firstName)==firstName)
@@ -232,12 +245,16 @@ function getCount(){
                 console.log( city);
             rl.question('Enter the state ', (state) => {
                 console.log( state);
-                
-        addressBookArray4.push(firstName,lastName,address,city,state)
-        console.log("The new contact is :  "+addressBookArray4)
+        
+        addressBookArray5.push(firstName,lastName,address,city,state)
+        console.log("The new contact is :  "+addressBookArray5)
         console.log("\n=======================>>> The addressBookMap after adding new contact is :  ")
-        addressBookMap.set(firstName,addressBookArray4)
+        addressBookMap.set(firstName,addressBookArray5)
         displayMap(addressBookMap)
+        rl.close()
         
-        })})})})}})   
-        
+        })})})})}})  
+    
+ 
+
+    
