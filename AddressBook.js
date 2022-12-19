@@ -139,6 +139,8 @@ try{
 let addressBookArray1=new Array();
 let addressBookArray2=new Array();
 let addressBookArray3=new Array();
+let addressBookArray4=new Array();
+
 let addressBookMap=new Map();
 let mapByCity=new Map();
 
@@ -184,11 +186,14 @@ function deleteByName(name){
         addressBookMap.delete(name)
         console.log("\n===========================================>>> The remaining list after deletion of details of "+name+" :\n ")
 
-        for (var entry of addressBookMap.entries()) {
-            var key = entry[0],
-                value = entry[1];
-            console.log(key + " = " + value);
-        }
+        displayMap(addressBookMap)
+    }
+}
+function displayMap(addressBookMap){
+    for (var entry of addressBookMap.entries()) {
+        var key = entry[0],
+            value = entry[1];
+        console.log(key + " = " + value);
     }
 }
 function getCount(){
@@ -200,3 +205,39 @@ function getCount(){
     }
     console.log("\nNumber of contacts present in the addressBook = "+count)
 }
+/*const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  readline.question('Enter the firstName : ', firstName  => {
+    //console.log(`Hey there ${firstName}!`);*/
+    // Importing the module
+    var readline = require('readline');
+    let rl = readline.createInterface(
+         process.stdin, process.stdout);
+  
+    rl.question('Enter the firstName ', (firstName) => {
+            console.log( firstName);
+        if(addressBookMap.has(firstName)==firstName)
+            console.log(`the contact ${firstName} is already present in the addressBook`);
+        else if(addressBookMap.has(firstName)!=firstName){
+            console.log("firstName is : "+firstName);
+
+            rl.question('Enter the lastName ', (lastName) => {
+                console.log( lastName);
+            rl.question('Enter the address ', (address) => {
+                console.log( address);
+            rl.question('Enter the city ', (city) => {
+                console.log( city);
+            rl.question('Enter the state ', (state) => {
+                console.log( state);
+                
+        addressBookArray4.push(firstName,lastName,address,city,state)
+        console.log("The new contact is :  "+addressBookArray4)
+        console.log("\n=======================>>> The addressBookMap after adding new contact is :  ")
+        addressBookMap.set(firstName,addressBookArray4)
+        displayMap(addressBookMap)
+        
+        })})})})}})   
+        
