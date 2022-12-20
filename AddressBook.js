@@ -174,20 +174,18 @@ getCountByCity("Pala");
 deleteByName("Geetha");
 getCount();
 searchByCity("Pala");
+sort();
 
 
 
 function searchByName(name){
     if(addressBookMap.has(name))
         console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBookMap.get(name))
-    else 
-        console.log("Invalid entry")
+
 }
 function searchByCity(city){
     if(mapByCity.has(city)==city)
         console.log("\n=========================>>>The searched city is "+city+" and the details of the person from that city is given below\n\n"+mapByCity.get(city))
-    else 
-        console.log("Invalid entry")
 }
  
 function deleteByName(name){
@@ -225,9 +223,17 @@ function getCountByCity(city) {
 
     }
     
+}  
+
+function sort(){
+    var sortedMap = new Map([...addressBookMap.entries()].sort());
+    console.log("\n ========================================================== sorted order based on name ===============================================\n");
+    console.log(displayMap(sortedMap)+"\n")
+
 }
 
     var readline = require('readline');
+    let addressBookArray6=new Array()
     let rl = readline.createInterface(
          process.stdin, process.stdout);
     rl.question('Enter the firstName ', (firstName) => {
@@ -246,10 +252,10 @@ function getCountByCity(city) {
             rl.question('Enter the state ', (state) => {
                 console.log( state);
         
-        addressBookArray5.push(firstName,lastName,address,city,state)
-        console.log("The new contact is :  "+addressBookArray5)
+        addressBookArray6.push(firstName,lastName,address,city,state)
+        console.log("The new contact is :  "+addressBookArray6)
         console.log("\n=======================>>> The addressBookMap after adding new contact is :  ")
-        addressBookMap.set(firstName,addressBookArray5)
+        addressBookMap.set(firstName,addressBookArray6)
         displayMap(addressBookMap)
         rl.close()
         
