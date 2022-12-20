@@ -145,6 +145,8 @@ let addressBookArray5=new Array();
 let addressBookMap=new Map();
 let mapByCity=new Map();
 let mapByState=new Map();
+let mapByZip=new Map();
+
 
 addressBookArray1.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
 addressBookArray2.push("Gouri","Menon","rty apartment","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
@@ -164,6 +166,11 @@ mapByState.set("Kochi",addressBookArray2)
 mapByState.set("Trivandrum",addressBookArray3)
 mapByState.set("Kottayam",addressBookArray5)
 
+mapByZip.set("456262",addressBook1)
+mapByZip.set("786262",addressBookArray2)
+mapByZip.set("656262",addressBookArray3)
+mapByZip.set("796262",addressBookArray5)
+
 
 
 
@@ -179,6 +186,7 @@ searchByCity("Pala");
 sort(addressBookMap,"name"); // sort by name in alphabetical order
 sort(mapByCity,"city"); // sort by city in alphabetical order
 sort(mapByState,"state"); // sort by state in alphabetical order
+sort(mapByZip,"zip"); // sort by zip
 
 
 
