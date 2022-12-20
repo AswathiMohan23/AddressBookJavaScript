@@ -150,8 +150,8 @@ let mapByCity=new Map();
 
 
 addressBookArray1.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
-addressBookArray2.push("Gouri","Menon","rty apartment","Vytla","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
-addressBookArray3.push("Ravi","Varma","tvm palace","Neyyatinkara","Trivandrum city","Trivandrum","Kerala","656262","91 9072837890","ravi@gmail.com")
+addressBookArray2.push("Gouri","Menon","rty apartment","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
+addressBookArray3.push("Ravi","Varma","tvm palace","Neyyatinkara","Trivandrum","Kerala","656262","91 9072837890","ravi@gmail.com")
 addressBookArray5.push("George","Davis","tyu house","Pala","Kottayam","Kerala","796262","91 8002837890","george@gmail.com")
 addressBookMap.set("Geetha",addressBookArray1)
 addressBookMap.set("Gouri",addressBookArray2)
@@ -228,7 +228,7 @@ function getCountByCity(city) {
 function sort(){
     var sortedMap = new Map([...addressBookMap.entries()].sort());
     console.log("\n ========================================================== sorted order based on name ===============================================\n");
-    console.log(displayMap(sortedMap)+"\n")
+    console.log(displayMap(sortedMap))
 
 }
 
