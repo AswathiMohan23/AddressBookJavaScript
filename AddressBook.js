@@ -139,14 +139,12 @@ try{
 let addressBookArray1=new Array();
 let addressBookArray2=new Array();
 let addressBookArray3=new Array();
-let addressBookArray4=new Array();
 let addressBookArray5=new Array();
 
 let addressBookMap=new Map();
 let mapByCity=new Map();
 let mapByState=new Map();
 let mapByZip=new Map();
-
 
 addressBookArray1.push("Geetha","Rani","xyz villa","Pala","Kottayam","Kerala","456262","91 6872837890","geetha@gmail.com")
 addressBookArray2.push("Gouri","Menon","rty apartment","Kochi","Ernakulam","Kerala","786262","91 9572837890","gour@gmail.com")
@@ -171,11 +169,7 @@ mapByZip.set("786262",addressBookArray2)
 mapByZip.set("656262",addressBookArray3)
 mapByZip.set("796262",addressBookArray5)
 
-
-
-
 console.log("AddressBookMap : ")
-
 console.log(addressBookMap)
 console.log("AddressBookArray : "+addressBookArray2)
 searchByName("Ravi");
@@ -188,15 +182,11 @@ sort(mapByCity,"city"); // sort by city in alphabetical order
 sort(mapByState,"state"); // sort by state in alphabetical order
 sort(mapByZip,"zip"); // sort by zip
 
-
-
-
-
 function searchByName(name){
     if(addressBookMap.has(name))
         console.log("\n=========================>>>The searched name is "+name+" and the details of that person is given below\n\n"+addressBookMap.get(name))
-
 }
+
 function searchByCity(city){
     if(mapByCity.has(city)==city)
         console.log("\n=========================>>>The searched city is "+city+" and the details of the person from that city is given below\n\n"+mapByCity.get(city))
@@ -206,10 +196,10 @@ function deleteByName(name){
     if(addressBookMap.has(name)==name){
         addressBookMap.delete(name)
         console.log("\n===========================================>>> The remaining list after deletion of details of "+name+" :\n ")
-
         displayMap(addressBookMap)
     }
 }
+
 function displayMap(addressBookMap){
     for (var entry of addressBookMap.entries()) {
         var key = entry[0],
@@ -217,6 +207,7 @@ function displayMap(addressBookMap){
         console.log(key + " = " + value);
     }
 }
+
 function getCount(){
     let count=0;
     for (var entry of addressBookMap.entries()) {
@@ -225,23 +216,20 @@ function getCount(){
     console.log("\n=======================>>>>>>>>>>> Number of contacts present in the addressBook = "+count)
 
 }
+
 function getCountByCity(city) {
     let storeArray=new Array()
     if(mapByCity.has(city)){
-        for(i=0;i<mapByCity.size;i++){
+        for(i=0;i<mapByCity.size;i++)
             storeArray.push(city)
-        }
         console.log("\n=========================>>>The searched city is "+city+" and no of people from that city is : "+storeArray.length)
-
     }
-    
 }  
 
 function sort(mapToBeSorted,property){
     var sortedMap = new Map([...mapToBeSorted.entries()].sort());
     console.log("\n ========================================================== sorted order based on "+property+" ===============================================\n");
     console.log(displayMap(sortedMap))
-
 }
 
     var readline = require('readline');
