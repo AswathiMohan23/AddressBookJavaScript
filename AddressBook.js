@@ -220,8 +220,6 @@ function displayMap(addressBookMap){
 function getCount(){
     let count=0;
     for (var entry of addressBookMap.entries()) {
-        var key = entry[0],
-            value = entry[1];
         count++    
     }
     console.log("\n=======================>>>>>>>>>>> Number of contacts present in the addressBook = "+count)
