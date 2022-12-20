@@ -174,7 +174,9 @@ getCountByCity("Pala");
 deleteByName("Geetha");
 getCount();
 searchByCity("Pala");
-sort();
+sort(addressBookMap,"name"); // sort by name in alphabetical order
+sort(mapByCity,"city"); // sort by city in alphabetical order
+
 
 
 
@@ -225,9 +227,9 @@ function getCountByCity(city) {
     
 }  
 
-function sort(){
-    var sortedMap = new Map([...addressBookMap.entries()].sort());
-    console.log("\n ========================================================== sorted order based on name ===============================================\n");
+function sort(mapToBeSorted,property){
+    var sortedMap = new Map([...mapToBeSorted.entries()].sort());
+    console.log("\n ========================================================== sorted order based on "+property+" ===============================================\n");
     console.log(displayMap(sortedMap))
 
 }
